@@ -1638,7 +1638,7 @@ var requirejs, require, define;
 
                 return config.urlArgs ? url +
                                         ((url.indexOf('?') === -1 ? '?' : '&') +
-                                         config.urlArgs) : url;
+                                         (isFunction(config.urlArgs) ? config.urlArgs(url) : config.urlArgs) : url;
             },
 
             //Delegates to req.load. Broken out as a separate function to
